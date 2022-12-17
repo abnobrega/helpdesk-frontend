@@ -33,9 +33,14 @@
   
     <!-- Conteúdo do Componente-->    
     <div class="sidenav-content">
+
       <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
+      
+      <!-- Renderiza meus componentes na tela, especificamente dentro do meu componente NAV -->
+      <router-outlet></router-outlet>      
+
     </div>
   
 </mat-drawer-container>
