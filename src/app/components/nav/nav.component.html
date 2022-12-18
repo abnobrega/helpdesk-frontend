@@ -33,13 +33,16 @@
   
     <!-- Conteúdo do Componente-->    
     <div class="sidenav-content">
-
-      <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
+        
+        <!-- Aplica o cabeçalho aqui, chamando o seletor do componente HEADER -->
+        <app-header></app-header>
+        
+        <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
-      </button>
-      
-      <!-- Renderiza meus componentes na tela, especificamente dentro do meu componente NAV -->
-      <router-outlet></router-outlet>      
+        </button>
+
+        <!-- Renderiza meus componentes na tela, especificamente dentro do meu componente NAV -->
+        <router-outlet></router-outlet>      
 
     </div>
   

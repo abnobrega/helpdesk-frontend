@@ -1,9 +1,9 @@
 .card {
     width: 90%;
-    margin: auto;
+    margin: .7rem auto;
     background-color: rgb(235,235,235);
 }
 
 img {
-    height: 21rem;
+    height: 14rem;
 }
