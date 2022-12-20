@@ -33,5 +33,9 @@ img {
 
 button {
     margin-top: 1.5rem;
-    background-color: rgb(42, 243, 42);
+   /* background-color: rgb(42, 243, 42); background-color: rgb(16, 238, 16); background-color: green; */ 
+}
+
+span1 {
+    color: green; 
 }
