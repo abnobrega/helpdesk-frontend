@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Credencias } from 'src/app/models/credenciais';
 
 @Component({
@@ -24,15 +25,21 @@ export class LoginComponent {
   /**************/  
   /* CONSTRUTOR */
   /**************/  
-  constructor() {
-
-  }
+  constructor(private toast: ToastrService) { }
 
   /***********/    
   /* MÉTODOS */
   /***********/   
   ngOnInit(): void {
 
+  }
+
+  logar() {
+    this.toast.error('Usuário e/ou Senha inválidos!', 'Login')
+    
+    /* limpa os campos automaticamente */
+    this.credencial.email = '';
+    this.credencial.senha = '';
   }
 
   validarCampos(): boolean {
