@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Credencias } from 'src/app/models/credenciais';
+import { Credenciais } from 'src/app/models/credenciais';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent {
   /*************/  
   /* ATRIBUTOS */
   /*************/ 
-  credencial: Credencias = {
+  credenciais: Credenciais = {
     email: '',
     senha: ''
   }
@@ -25,7 +27,11 @@ export class LoginComponent {
   /**************/  
   /* CONSTRUTOR */
   /**************/  
-  constructor(private toast: ToastrService) { }
+  constructor(
+    private toast: ToastrService,  
+    private authService: AuthService,
+    private router: Router) { 
+  }
 
   /***********/    
   /* MÉTODOS */
@@ -35,11 +41,16 @@ export class LoginComponent {
   }
 
   logar() {
-    this.toast.error('Usuário e/ou Senha inválidos!', 'Login')
-    
-    /* limpa os campos automaticamente */
-    this.credencial.email = '';
-    this.credencial.senha = '';
+    this.authService.authenticate(this.credenciais).subscribe(resposta => {
+      /* this.toast.info(resposta.headers.get('Authorization')) */
+
+      /* Parâmetro: passar o token que está dentro do header, na resposta da requisição. */
+      this.authService.successfulLogin(resposta.headers.get('Authorization').substring(7));
+      // Navegar para a rota do componente principal NAV
+      this.router.navigate(['']);
+    }, () => {
+      this.toast.error('Usuário e/ou senha inválidos');
+    })
   }
 
   validarCampos(): boolean {
