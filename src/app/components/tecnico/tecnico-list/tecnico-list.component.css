@@ -5,4 +5,25 @@
 
 table {
     width: 100%;
-  }
+}
+
+mat-form-field {
+    width: 50%;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-top: -3rem;    
+    margin-bottom: 2rem;    
+}
+
+button {
+    width: 100%;
+    background-color: rgb(9, 185, 9);
+    margin-bottom: 1rem;       
+}
+
+span {
+ color: white;
+}

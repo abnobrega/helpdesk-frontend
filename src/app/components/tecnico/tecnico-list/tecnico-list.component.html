@@ -1,4 +1,18 @@
 <div class="containe">
+
+    <!-- TÍTULO DA PÁGINA --> 
+    <h1>LISTA DE TÉCNICOS</h1>
+
+    <!-- Botão Criar Técnico -->
+    <button class="mat-elevation-z8" mat-stroked-button color="primary"><span>Criar Técnico</span></button>
+  
+    <!-- Filtro -->
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <!-- Tabela de Técnicos -->
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">
       
