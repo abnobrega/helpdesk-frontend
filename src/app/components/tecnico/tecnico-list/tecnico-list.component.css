@@ -20,10 +20,20 @@ h1 {
 
 button {
     width: 100%;
-    background-color: rgb(9, 185, 9);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(37,97,207,1) 0%, rgba(0,212,255,1) 100%);
+    border: none;
     margin-bottom: 1rem;       
 }
 
 span {
  color: white;
+}
+
+.edit {
+    /* color: rgb(77, 77, 224); */
+    color: rgb(0, 153, 255);
+}
+
+.delete {
+    color: red;
 }
