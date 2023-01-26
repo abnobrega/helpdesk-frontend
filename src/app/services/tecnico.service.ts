@@ -30,7 +30,9 @@ export class TecnicoService {
   }
 
   // EXCLUIR UM TÉCNICO  
-
+  excluirTecnico(id: any): Observable<Tecnico>{
+    return this.httpClient.delete<Tecnico>(`${API_CONFIG.baseUrl}/api/tecnicos/${id}`);
+  } 
   
   // INCLUIR UM NOVO TÉCNICO: Faz a requisição pra incluir um novo técnico e fica observando
   incluirTecnico(tecnico: Tecnico): Observable<Tecnico> {
