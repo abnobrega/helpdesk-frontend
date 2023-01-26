@@ -14,9 +14,9 @@ export class TecnicoListComponent implements OnInit {
   /*************/  
   /* ATRIBUTOS */
   /*************/  
-  ELEMENT_DATA: Tecnico[] = [] 
+  ELEMENT_DATA: Tecnico[] = []; 
   
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'acoes' ];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'acoes'];
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -42,7 +42,7 @@ export class TecnicoListComponent implements OnInit {
       // O array ELEMENT_DATA recebe o array da resposta
       this.ELEMENT_DATA = resposta;
       // Quando a resposta chegar, vou carregar o datasource com o array ELEMENT_DATA
-      this.dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
+      this.dataSource = new MatTableDataSource<Tecnico>(resposta);
       // Trata a paginação da tela
       this.dataSource.paginator = this.paginator;
     });    

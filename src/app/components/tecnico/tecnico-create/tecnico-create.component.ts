@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-tecnico-create',
@@ -45,27 +46,25 @@ export class TecnicoCreateComponent {
 
   // INCLUIR UM NOVO TÉCNICO
   incluirTecnico(): void {
-    this.tecnicoService.incluirTecnico(this.tecnico).subscribe(resposta => {
-      // Quando a resposta chegar, se eu conseguir cadastrar esse técnico com sucesso,
-      // quero imprimir uma mensagem para o usuário informando isto.
+    this.tecnicoService.incluirTecnico(this.tecnico).subscribe((resposta) => {
+      //console.log(resposta); // Lança a resposta no console pra ser visualizada.
+      // Quando a resposta chegar, SE (eu conseguir cadastrar esse técnico com sucesso)
+      // ENTÃO quero imprimir uma mensagem para o usuário informando isto.     
       this.toast.success('Tecnico cadastrado com sucesso', 'Cadastro de Técnico');
-      // Retorna para a página 'listar de técnicos'
-      this.router.navigate(['tecnicos']); //
-    }, ex => {
-      //console.log(ex); // Lança a exceção no console pra ser visualizada. 
-      if (ex.error.erros) {
-        this.toast.success('Existe array de erros', 'Existe array de erros');
-        // Existe array de erros e preciso percorrer esse array e tratar os erros.
-        ex.error.erros.forEach(element => {
-          // para cada elemento do meu array de erros, exibe a msg de erro deste elemento.
-          this.toast.error(element.message); 
+      this.router.navigate(['tecnicos']); // Retorna para a página 'listar de técnicos' 
+    }, excecao => {
+      if(excecao.error.errors) {
+        excecao.error.errors.forEach(element => {
+          //this.toast.success('Existe um array de erros', 'Existem vários erros');             
+          this.toast.error(element.message);
         });
       } else {
-        this.toast.success('Existe UM erro', 'Existe UM erro');
-        // Exibe a msg de erro específica do únici erro encontrado
-        this.toast.error(ex.error.message); 
-      }
-
+        //this.toast.success('Existe um único erro', 'Existe um erro');           
+        this.toast.error(excecao.error.message);
+        //this.toast.error(excecao.error.status);
+        //console.log(excecao);        
+      }      
+   
     })
   }
 
@@ -82,14 +81,21 @@ export class TecnicoCreateComponent {
   addPerfil(perfil: any): void {
     // Verifica se o perfil selecionado já está na lista de perfis   
     // Verifica se é para adicionar um novo perfil, ou excluir um perfil desmarcado
+
+    // SE (PERFIL JÁ EXISTE) ENTÃO REMOVER SEÃO ADICIONAR NOVO PERFIL NA LISTA DE PERFIS
     if (this.tecnico.perfis.includes(perfil)) {
+
        // SIM, JÁ EXISTE! Então, remove o perfil da lista de perfis, na exata posição do índice informado (perfil)      
       this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1);
+      // console.log(this.tecnico.perfis);  Exibe no console a lista de perfis  
+
     } else {
+
       //  PERFIL NÃO EXISTE! LOGO, ADICIONO O PERFIL NA LISTA DE PERFIS.
       this.tecnico.perfis.push(perfil);
+      // console.log(this.tecnico.perfis);  Exibe no console a lista de perfis      
+
     }
-    // console.log(this.tecnico.perfis);  Exibe no console a lista de perfis
 
   }
 

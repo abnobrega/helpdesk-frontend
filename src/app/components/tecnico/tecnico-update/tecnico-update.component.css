@@ -1,0 +1,53 @@
+.container {
+    width: 35rem;
+    margin: auto;
+    padding: 1rem;
+    border-radius: .6rem;
+    background-color: rgb(255, 255, 255);    
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.thirdWidth {
+    width: 42%;
+}
+
+button {
+    margin-top: .5rem;
+}
+
+.btnCadastrar {
+    float: right;  
+}
+
+.btnCancelar {
+    float: left;  
+}
+
+h1 {
+    text-align: center;
+    margin-top: -3.5rem;        
+}
+
+img {
+    height: 12rem;
+    margin: auto;
+}
+
+.section {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    margin-top: 5rem;
+    text-align: center;  
+    opacity: .77;
+}
+
+mat-icon {
+    opacity: .8;
+}
