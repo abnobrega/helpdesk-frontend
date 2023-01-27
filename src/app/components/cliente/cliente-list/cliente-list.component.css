@@ -1,0 +1,43 @@
+.containe {
+    width: 90%;
+    margin: .7rem auto;
+}
+
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 50%;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-top: -3rem;    
+    margin-bottom: 2rem;    
+}
+
+button {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(37,97,207,1) 0%, rgba(0,212,255,1) 100%);
+    border: none;
+    margin-bottom: 1rem;       
+}
+
+span {
+ color: white;
+}
+
+.edit {
+    /* color: rgb(77, 77, 224); */
+    color: rgb(0, 153, 255);
+}
+
+.delete {
+    color: rgb(207, 5, 5);
+}
+
+.fullWidth {
+    width: 100%;
+}

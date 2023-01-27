@@ -1,18 +1,18 @@
 <div class="container mat-elevation-z8" >
     <form class="form">
-        <h1 class="fullWidth" >EXCLUIR TÉCNICO</h1>
+        <h1 class="fullWidth" >EXCLUIR CLIENTE</h1>
         <img class="fullWidth" src="assets/img/tecnico-create.svg" alt="Help Desk - Criar Téncico">
 
         <section class="section">
             <mat-checkbox [disabled]="true" class="margin" color="primary">Admin</mat-checkbox>
             <mat-checkbox [disabled]="true" class="margin" color="primary">Cliente</mat-checkbox>
-            <mat-checkbox [disabled]="true" class="margin" color="primary">Técnico</mat-checkbox>                        
+            <mat-checkbox [disabled]="true" class="margin" color="primary">Cliente</mat-checkbox>                        
         </section>  
 
         <mat-form-field class="fullWidth" appearance="fill">
             <mat-label>Nome</mat-label>
             <input 
-                [(ngModel)]="tecnico.nome"
+                [(ngModel)]="cliente.nome"
                 name="nome"                
                 matInput
                 [disabled]="true"                   
@@ -23,7 +23,7 @@
         <mat-form-field class="fullWidth" appearance="fill">
             <mat-label>CPF</mat-label>
             <input 
-                [(ngModel)]="tecnico.cpf"
+                [(ngModel)]="cliente.cpf"
                 name="cpf"                  
                 matInput
                 [disabled]="true"   
@@ -34,7 +34,7 @@
         <mat-form-field class="fullWidth" appearance="fill">
             <mat-label>E-mail</mat-label>
             <input 
-                [(ngModel)]="tecnico.email"
+                [(ngModel)]="cliente.email"
                 name="email"                  
                 matInput
                 [disabled]="true"   
@@ -45,7 +45,7 @@
         <mat-form-field class="fullWidth" appearance="fill">
             <mat-label>Senha</mat-label>
             <input 
-                [(ngModel)]="tecnico.senha"
+                [(ngModel)]="cliente.senha"
                 name="senha"  
                 matInput
                 [disabled]="true"   
@@ -59,7 +59,7 @@
                 mat-stroked-button 
                 color="warn">Cancelar
         </button>             
-        <button (click)="excluirTecnico()"
+        <button (click)="excluirCliente()"
                 class="thirdWidth btnCadastrar mat-elevation-z4" 
                 mat-flat-button 
                 color="primary">Excluir
