@@ -30,19 +30,19 @@ git clone https://github.com/abnobrega/helpdesk-frontend.git
 
 ---
 
-2️⃣ Acesse o diretório
+### 2️⃣ Acesse o diretório
 
 cd helpdesk-frontend
 
 ---
 
-3️⃣ Instale as dependências
+### 3️⃣ Instale as dependências
 
 npm install
 
 ---
 
-4️⃣ Rode o projeto
+### 4️⃣ Rode o projeto
 
 ng serve
 
@@ -50,7 +50,7 @@ A aplicação estará disponível em http://localhost:4200.
 
 ---
 
-✅ Funcionalidades
+### ✅ Funcionalidades
 
 - Login com autenticação JWT
 
