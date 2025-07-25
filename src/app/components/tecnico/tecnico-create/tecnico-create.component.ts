@@ -42,7 +42,9 @@ export class TecnicoCreateComponent {
   /***********/    
   /* MÉTODOS */
   /***********/    
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.addPerfil(2); // ADICIONA O PERFIL TÉCNICO
+  }
 
   // INCLUIR UM NOVO TÉCNICO
   incluirTecnico(): void {
@@ -76,27 +78,23 @@ export class TecnicoCreateComponent {
         && this.senha.valid;
   }
 
-  // Adiciona os perfis selecionados no HTML ao array de perfis do novo usuário técnico.
+
+  /* Verifica se é para adicionar um novo perfil, ou excluir um perfil desmarcado
+     SE (PERFIL JÁ EXISTE) ENTÃO 
+         REMOVER O PERFIL DESMASCADO PELO USUÁRIO
+     SENÃO 
+         ADICIONAR O NOVO PERFIL MARCADO PELO USUÁRIO
+     FIM-SE 
+  */
+  // Adiciona os perfis selecionados no HTML ao array de perfis do novo usuário cliente.
   // Este método recebe um perfil pode ser any: um integer ou uma string e não retorna nada. 
   addPerfil(perfil: any): void {
-    // Verifica se o perfil selecionado já está na lista de perfis   
-    // Verifica se é para adicionar um novo perfil, ou excluir um perfil desmarcado
-
-    // SE (PERFIL JÁ EXISTE) ENTÃO REMOVER SEÃO ADICIONAR NOVO PERFIL NA LISTA DE PERFIS
+    console.log(this.tecnico.perfis);  //Exibe no console a lista de perfis  
     if (this.tecnico.perfis.includes(perfil)) {
-
-       // SIM, JÁ EXISTE! Então, remove o perfil da lista de perfis, na exata posição do índice informado (perfil)      
       this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1);
-      // console.log(this.tecnico.perfis);  Exibe no console a lista de perfis  
-
     } else {
-
-      //  PERFIL NÃO EXISTE! LOGO, ADICIONO O PERFIL NA LISTA DE PERFIS.
       this.tecnico.perfis.push(perfil);
-      // console.log(this.tecnico.perfis);  Exibe no console a lista de perfis      
-
     }
-
   }
 
 }

@@ -1,45 +1,23 @@
+import { ArrayDataSource } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
+import { elementAt } from 'rxjs';
 import { Chamado } from 'src/app/models/chamado';
+import { ChamadoService } from 'src/app/services/chamado.service';
 
 @Component({
   selector: 'app-chamado-list',
   templateUrl: './chamado-list.component.html',
   styleUrls: ['./chamado-list.component.css']
 })
+
 export class ChamadoListComponent implements OnInit {
   /*************/  
   /* ATRIBUTOS */
   /*************/   
-  ELEMENT_DATA: Chamado[] = [
-    {
-      id:             1,   
-      dataAbertura:   '21/06/2021',
-      dataFechamento: '21/06/2021',
-      prioridade:      'ALTA',
-      status:          'ANDANENTO',
-      titulo:          'Chamado 1',
-      descricao:       'Teste do chamado 1',
-      tecnico:         1,
-      cliente:         7,
-      nomeCliente:     'Albert Einstein',
-      nomeTecnico:     'Alexandre Bonturi Nóbrega'
-    }, 
-    {
-      id:             2,   
-      dataAbertura:   '23/06/2021',
-      dataFechamento: '23/06/2021',
-      prioridade:      'MEDIA',
-      status:          'ENCERRADO',
-      titulo:          'Chamado 2',
-      descricao:       'Teste do chamado 2',
-      tecnico:         2,
-      cliente:         8,
-      nomeCliente:     'Marie Curie',
-      nomeTecnico:     'Ricardo Stallman'
-    }
-  ]; 
+  ELEMENT_DATA: Chamado[] = []; 
   
   displayedColumns: string[] = ['id', 'titulo', 'cliente', 'tecnico', 'dataAbertura', 'prioridade', 'status', 'acoes'];
   dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
@@ -50,15 +28,28 @@ export class ChamadoListComponent implements OnInit {
   /* CONSTRUTOR */
   /**************/    
   constructor( 
-     ) { }
+    private chamadoService: ChamadoService, // Injeta um ChamadoService
+    private toastr: ToastrService
+  ) { }
   
   /***********/    
   /* MÉTODOS */
   /***********/      
   ngOnInit(): void { 
-    // Toda vez que esse método iniciar quero chamar o método findAll()
-    //this.findAll();
+    // Toda vez que esse método ngOnInit() for iniciado, quero chamar o método findAll()
+    this.findAll();
   }  
+
+  findAll(): void {
+    this.chamadoService.findAll().subscribe(resposta => {
+      this.ELEMENT_DATA = resposta;
+      this.dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
+      this.dataSource.paginator = this.paginator;      
+      //console.log(resposta);
+      //console.log(this.dataSource);
+    })
+
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

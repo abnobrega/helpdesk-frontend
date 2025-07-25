@@ -39,10 +39,10 @@ export class ClienteListComponent implements OnInit {
   findAll() {
     // Listar todos os clientes e me inscrever no método para poder tratar a resposta
     this.clienteService.findAll().subscribe(resposta => {
-      // O array ELEMENT_DATA recebe o array da resposta
+      // Quando a resposta chegar, o array ELEMENT_DATA recebe o array da resposta
       this.ELEMENT_DATA = resposta;
-      // Quando a resposta chegar, vou carregar o datasource com o array ELEMENT_DATA
-      this.dataSource = new MatTableDataSource<Cliente>(resposta);
+      // Vou carregar o datasource com o array ELEMENT_DATA
+      this.dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
       // Trata a paginação da tela
       this.dataSource.paginator = this.paginator;
     });    

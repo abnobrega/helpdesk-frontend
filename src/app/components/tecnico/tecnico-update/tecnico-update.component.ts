@@ -59,6 +59,7 @@ export class TecnicoUpdateComponent {
 
   // ATUALIZAR UM TÉCNICO
   atualizarTecnico(): void {
+    this.addPerfil(2);    
     this.tecnicoService.atualizarTecnico(this.tecnico).subscribe(resposta => {
       // Quando a resposta chegar, se eu conseguir cadastrar esse técnico com sucesso,
       // quero imprimir uma mensagem para o usuário informando isto.

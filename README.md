@@ -1,3 +1,100 @@
+# 📞🖥️ HelpDesk Frontend
+
+Este é o **frontend** do sistema **HelpDesk**, desenvolvido com **Angular 15**.  
+Permite cadastro e gestão de **Técnicos**, **Clientes** e **Chamados**, com **autenticação JWT** e navegação segura com **AuthGuards**.
+
+---
+
+## 🚀 **Tech Stack**
+
+- **Framework:** Angular 15+
+- **Linguagem:** TypeScript
+- **Autenticação:** JWT
+- **Guards:** AuthGuard
+- **Router:** Angular Router
+- **HTTP Client:** HttpClientModule
+
+---
+
+## ⚙️ **Como rodar localmente**
+
+1️⃣ **Clone o repositório**
+
+git clone https://github.com/abnobrega/helpdesk-frontend.git
+
+2️⃣ **Acesse o diretório**
+
+cd helpdesk-front/helpdesk-proj
+
+3️⃣ **Instale as dependências**
+
+npm install
+
+4️⃣ **Rode a aplicação no servidor de desenvolvimento**
+
+# ⚠️ Se estiver usando Node 17+ ou superior:
+export NODE_OPTIONS=--openssl-legacy-provider
+npx ng serve
+
+**Em seguida acesse:**### 👨‍💻 Author
+- Developed by Alexandre Bonturi Nóbrega
+- Independent Full-Stack & Web3 Software Engineer
+- LinkedIn: https://www.linkedin.com/in/alexandrebonturinobrega/ http://localhost:4200
+
+---
+
+### 🧰 Comandos úteis do Angular CLI
+
+- Gerar um novo componente
+
+ng generate component nome-componente
+
+- Build de produção
+
+ng build
+
+- Rodar testes unitários
+
+ng test
+
+- Para mais informações: https://v17.angular.io/cli
+
+---
+
+### ✅ Funcionalidades principais
+
+- Login com autenticação JWT
+
+- Cadastro, edição e exclusão de Técnicos
+
+- Cadastro, edição e exclusão de Clientes
+
+- Cadastro, atualização e consulta de Chamados
+
+- Controle de acesso por perfil de usuário
+
+- Interceptador de requisições com token JWT
+
+- Proteção de rotas com AuthGuard
+
+---
+
+### 🖼️ **Screenshots**
+
+### 🗂️ HELP DESK WEB SYSTEM — MAIN SCREEN
+
+![Main Screen](./screenshots/HelpDesk-main-screen.png)
+
+--- 
+
+### 📣 Backend
+
+Este frontend consome a API REST do [HelpDesk Backend](https://github.com/abnobrega/helpdesk-backend).
+
+---
+
+### RESUMO
+
 # HelpdeskProj
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
@@ -25,3 +122,17 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+---
+
+### 👨‍💻 Author
+- Developed by Alexandre Bonturi Nóbrega
+- Independent Full-Stack Web3 Software Engineer
+- LinkedIn: https://www.linkedin.com/in/alexandrebonturinobrega/
+
+--- 
+
+### 🗂️ Licença
+- Este projeto é de uso pessoal.
+
+- LinkedIn: https://www.linkedin.com/in/alexandrebonturinobrega/

@@ -42,7 +42,9 @@ export class ClienteCreateComponent {
   /***********/    
   /* MÉTODOS */
   /***********/    
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.addPerfil(1); // ADICIONA O PERFIL CLIENTE
+   }
 
   // INCLUIR UM NOVO TÉCNICO
   incluirCliente(): void {
@@ -54,17 +56,16 @@ export class ClienteCreateComponent {
       this.router.navigate(['clientes']); // Retorna para a página 'listar de clientes' 
     }, excecao => {
       if(excecao.error.errors) {
-        excecao.error.errors.forEach(element => {
-          //this.toast.success('Existe um array de erros', 'Existem vários erros');             
+        excecao.error.errors.forEach(element => {        
           this.toast.error(element.message);
+          //this.toast.success('Existe um array de erros', 'Existem vários erros');              
         });
-      } else {
-        //this.toast.success('Existe um único erro', 'Existe um erro');           
+      } else {          
         this.toast.error(excecao.error.message);
+        //this.toast.success('Existe um único erro', 'Existe um erro');         
         //this.toast.error(excecao.error.status);
         //console.log(excecao);        
       }      
-   
     })
   }
 
@@ -75,28 +76,27 @@ export class ClienteCreateComponent {
         && this.email.valid 
         && this.senha.valid;
   }
-
+  
+  /* Verifica se é para adicionar um novo perfil, ou excluir um perfil desmarcado
+     SE (PERFIL JÁ EXISTE) ENTÃO 
+         REMOVER O PERFIL DESMASCADO PELO USUÁRIO
+     SENÃO 
+         ADICIONAR O NOVO PERFIL MARCADO PELO USUÁRIO
+     FIM-SE 
+  */
   // Adiciona os perfis selecionados no HTML ao array de perfis do novo usuário cliente.
   // Este método recebe um perfil pode ser any: um integer ou uma string e não retorna nada. 
   addPerfil(perfil: any): void {
-    // Verifica se o perfil selecionado já está na lista de perfis   
-    // Verifica se é para adicionar um novo perfil, ou excluir um perfil desmarcado
-
-    // SE (PERFIL JÁ EXISTE) ENTÃO REMOVER SEÃO ADICIONAR NOVO PERFIL NA LISTA DE PERFIS
+    // Verifica se o perfil selecionado já está na lista de perfis       
     if (this.cliente.perfis.includes(perfil)) {
-
        // SIM, JÁ EXISTE! Então, remove o perfil da lista de perfis, na exata posição do índice informado (perfil)      
       this.cliente.perfis.splice(this.cliente.perfis.indexOf(perfil), 1);
       // console.log(this.cliente.perfis);  Exibe no console a lista de perfis  
-
     } else {
-
       //  PERFIL NÃO EXISTE! LOGO, ADICIONO O PERFIL NA LISTA DE PERFIS.
       this.cliente.perfis.push(perfil);
       // console.log(this.cliente.perfis);  Exibe no console a lista de perfis      
-
     }
-
   }
 
 }
