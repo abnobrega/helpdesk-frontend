@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "helpdesk-proj",
   "version": "0.0.0",
   "scripts": {
@@ -40,5 +41,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.8.2"
+=======
+  "dependencies": {
+    "@angular/cli": "^15.0.2"
+>>>>>>> 6af0ceba286b8198c05115e4a2b191ec05c28d19
   }
 }

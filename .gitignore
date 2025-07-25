@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
@@ -40,3 +41,26 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+=======
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+out-tsc/
+
+# IDEs/Editors
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env files (opcional)
+.env
+>>>>>>> 6af0ceba286b8198c05115e4a2b191ec05c28d19
